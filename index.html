@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>МАХ⚙️ВИК & GAME MEF</title>
-    <link rel="stylesheet" href="style.css" id="theme-style">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
+<body class="theme-default">
     <header>
         <nav>
             <div class="logo">
@@ -19,7 +18,7 @@
                 <li><a href="#games">Наши игры</a></li>
                 <li><a href="#contact">Контакты</a></li>
                 <li class="theme-switch-container">
-                    <button id="theme-switch" class="theme-switch-button">Сменить тему</button>
+                    <button id="theme-switch" class="theme-switch-button">Frutiger Aero</button>
                 </li>
             </ul>
         </nav>
@@ -83,15 +82,17 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const themeSwitch = document.getElementById('theme-switch');
-            const themeStyle = document.getElementById('theme-style');
+            const body = document.body;
 
             themeSwitch.addEventListener('click', () => {
-                if (themeStyle.getAttribute('href') === 'style.css') {
-                    themeStyle.setAttribute('href', 'frutigeraero.css');
+                if (body.classList.contains('theme-default')) {
+                    body.classList.remove('theme-default');
+                    body.classList.add('theme-frutiger');
                     themeSwitch.textContent = 'Базовая тема';
                 } else {
-                    themeStyle.setAttribute('href', 'style.css');
-                    themeSwitch.textContent = 'Сменить тему';
+                    body.classList.remove('theme-frutiger');
+                    body.classList.add('theme-default');
+                    themeSwitch.textContent = 'Frutiger Aero';
                 }
             });
         });
